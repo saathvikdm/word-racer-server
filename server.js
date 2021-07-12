@@ -20,6 +20,8 @@ db.once("open", () => console.log("Connected to Database"));
 
 app.use(express.json());
 
+app.get("/", (req, res) => res.send("MERN Word Racer API"));
+
 const scoreRouter = require("./routes/scores");
 app.use("/scores", scoreRouter);
 
