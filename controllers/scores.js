@@ -14,6 +14,15 @@ const saveScore = async (req, res) => {
   }
 };
 
+const getScores = async (req, res) => {
+  try {
+    const scores = await Score.find();
+    res.json(scores);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 const getHighScores = async (req, res) => {
   try {
     const scores = await Score.find({}, null, {
@@ -26,4 +35,4 @@ const getHighScores = async (req, res) => {
   }
 };
 
-module.exports = { saveScore, getHighScores };
+module.exports = { saveScore, getScores, getHighScores };
