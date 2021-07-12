@@ -4,11 +4,7 @@ var cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
 
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN,
-  })
-);
+app.use(cors());
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
