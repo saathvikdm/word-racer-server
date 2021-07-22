@@ -16,7 +16,9 @@ const saveScore = async (req, res) => {
 
 const getScores = async (req, res) => {
   try {
-    const scores = await Score.find();
+    const scores = await Score.find({}, null, {
+      sort: { score: -1 },
+    });
     res.json(scores);
   } catch (err) {
     res.status(500).json({ message: err.message });
